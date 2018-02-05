@@ -1,0 +1,6 @@
+﻿  searchdir.c
+  open.c
+  fatchain.c
+  cache.c
+  Generating Code...
+C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\arm\Debug\syslinux-libfat\cache.obj : fatal error LNK1112: module machine type 'x86' conflicts with target machine type 'ARM'

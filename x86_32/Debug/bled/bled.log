@@ -1,0 +1,29 @@
+﻿  xz_dec_stream.c
+  xz_dec_lzma2.c
+  xz_dec_bcj.c
+  seek_by_read.c
+  seek_by_jump.c
+  open_transformer.c
+  init_handle.c
+  header_verbose_list.c
+  header_skip.c
+  header_list.c
+  find_list_entry.c
+  filter_accept_reject_list.c
+  filter_accept_list.c
+  filter_accept_all.c
+  decompress_unzip.c
+  decompress_unxz.c
+  decompress_unlzma.c
+  decompress_uncompress.c
+  decompress_gunzip.c
+  decompress_bunzip2.c
+  Generating Code...
+  Compiling...
+  data_skip.c
+  data_extract_all.c
+  data_align.c
+  crc32.c
+  bled.c
+  Generating Code...
+  bled.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\x86_32\Debug\bled.lib
