@@ -66,6 +66,7 @@ static BOOL existing_key = FALSE;	// For LGP set/restore
 static BOOL size_check = TRUE;
 static BOOL log_displayed = FALSE;
 static BOOL iso_provided = FALSE;
+static BOOL iso_provided_via_argument = FALSE;
 static BOOL user_notified = FALSE;
 static BOOL relaunch = FALSE;
 static BOOL dont_display_image_name = FALSE;
@@ -2526,7 +2527,9 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 		case IDC_SELECT_ISO:
 			if (iso_provided) {
 				uprintf("\r\nImage provided: '%s'", image_path);
-				iso_provided = FALSE;	// One off thing...
+				if (!iso_provided_via_argument) {
+					iso_provided = FALSE;	// One off thing...
+				}
 			} else {
 				safe_free(image_path);
 				EnableWindow(hStatusToolbar, FALSE);
@@ -3141,6 +3144,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 					safe_free(image_path);
 					image_path = safe_strdup(lpCmdLine);
 					iso_provided = TRUE;
+					iso_provided_via_argument = TRUE;
 				}
 			}
 		}
