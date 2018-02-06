@@ -2527,7 +2527,11 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 		case IDC_SELECT_ISO:
 			if (iso_provided) {
 				uprintf("\r\nImage provided: '%s'", image_path);
-				if (!iso_provided_via_argument) {
+				if (iso_provided_via_argument) {
+					PostMessage(hDlg, WM_COMMAND, IDC_START, 0);
+					//MessageBox(NULL, "Your ResQstick has been created!!!", "DONE", MB_OK);
+					//PostMessage(hDlg, WM_COMMAND, IDCANCEL, 0);
+				} else {
 					iso_provided = FALSE;	// One off thing...
 				}
 			} else {
@@ -2653,6 +2657,10 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 			}
 			if (format_thid != NULL)
 				break;
+			if (iso_provided_via_argument) {
+				MessageBox(NULL, "Your ResQstick has been created!!!", "DONE", MB_OK);
+				PostMessage(hDlg, WM_COMMAND, IDCANCEL, 0);
+			}
 		aborted_start:
 			format_op_in_progress = FALSE;
 			EnableControls(TRUE);
