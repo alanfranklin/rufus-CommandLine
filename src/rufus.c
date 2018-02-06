@@ -3027,6 +3027,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 #endif
 {
+	MessageBox(NULL, lpCmdLine, "DEBUG", MB_OK);
 	const char* rufus_loc = "rufus.loc";
 	int i, opt, option_index = 0, argc = 0, si = 0, lcid = GetUserDefaultUILanguage();
 	int wait_for_mutex = 0;
@@ -3133,6 +3134,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				default:
 					PrintUsage(argv[0]);
 					goto out;
+				}
+			}
+			if (lpCmdLine != NULL) {
+				if (lpCmdLine != "") {
+					safe_free(image_path);
+					image_path = safe_strdup(lpCmdLine);
+					iso_provided = TRUE;
 				}
 			}
 		}
