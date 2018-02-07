@@ -2657,10 +2657,6 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 			}
 			if (format_thid != NULL)
 				break;
-			if (iso_provided_via_argument) {
-				MessageBox(NULL, "Your ResQstick has been created!!!", "DONE", MB_OK);
-				PostMessage(hDlg, WM_COMMAND, IDCANCEL, 0);
-			}
 		aborted_start:
 			format_op_in_progress = FALSE;
 			EnableControls(TRUE);
@@ -2932,6 +2928,10 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 			SendMessage(hProgress, PBM_SETRANGE, 0, (MAX_PROGRESS<<16) & 0xFFFF0000);
 			SetTaskbarProgressState(TASKBAR_NOPROGRESS);
 			PrintInfo(0, MSG_210);
+			if (iso_provided_via_argument) {
+				MessageBox(NULL, "Your ResQstick has been created!!!", "DONE", MB_OK);
+				PostMessage(hDlg, WM_COMMAND, IDCANCEL, 0);
+			}
 			MessageBeep(MB_OK);
 			FlashTaskbar(dialog_handle);
 		} else if (SCODE_CODE(FormatStatus) == ERROR_CANCELLED) {
@@ -3082,6 +3082,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 	// We have to process the arguments before we acquire the lock and process the locale
+
 	PF_INIT(__wgetmainargs, Msvcrt);
 	if (pf__wgetmainargs != NULL) {
 		pf__wgetmainargs(&argc, &wargv, &wenv, 1, &si);
