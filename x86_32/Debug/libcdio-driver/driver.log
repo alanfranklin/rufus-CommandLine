@@ -1,13 +1,1 @@
-﻿  _cdio_stream.c
-  _cdio_stdio.c
-  util.c
-  utf8.c
-  track.c
-  sector.c
-  read.c
-  memory.c
-  logging.c
-  ds.c
-  disc.c
-  Generating Code...
-  driver.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\x86_32\Debug\libcdio-driver.lib
+﻿  driver.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18-GitHub\x86_32\Debug\libcdio-driver.lib

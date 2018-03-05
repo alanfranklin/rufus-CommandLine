@@ -1,6 +1,1 @@
-﻿  xa.c
-  rock.c
-  iso9660_fs.c
-  iso9660.c
-  Generating Code...
-  iso9660.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\x86_32\Debug\libcdio-iso9660.lib
+﻿  iso9660.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18-GitHub\x86_32\Debug\libcdio-iso9660.lib

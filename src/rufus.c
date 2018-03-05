@@ -3367,6 +3367,7 @@ relaunch:
 	if (!SetFormatPromptHook())
 		uprintf("Warning: Could not set 'Format Disk' prompt auto-close");
 
+	//ALF - Comment out these two lines to supress showing the window.
 	ShowWindow(hDlg, SW_SHOWNORMAL);
 	UpdateWindow(hDlg);
 

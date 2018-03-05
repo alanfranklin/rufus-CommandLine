@@ -1,9 +1,1 @@
-﻿  partition_info.c
-  ntfs.c
-  file.c
-  fat32.c
-  fat16.c
-  fat12.c
-  br.c
-  Generating Code...
-  ms-sys.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\x86_32\Debug\ms-sys.lib
+﻿  ms-sys.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18-GitHub\x86_32\Debug\ms-sys.lib

@@ -1,7 +1,1 @@
-﻿  udf_time.c
-  udf_fs.c
-  udf_file.c
-  udf.c
-  filemode.c
-  Generating Code...
-  udf.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\x86_32\Debug\libcdio-udf.lib
+﻿  udf.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18-GitHub\x86_32\Debug\libcdio-udf.lib

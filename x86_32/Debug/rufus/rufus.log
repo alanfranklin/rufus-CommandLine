@@ -1,1 +1,3 @@
-﻿  rufus.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18\x86_32\Debug\rufus.exe
+﻿  rufus.c
+..\rufus.c(1866): warning C4133: 'function': incompatible types - from 'char [16]' to 'LPCWSTR'
+  rufus.vcxproj -> C:\Users\afranklin\Desktop\Daniel Goodman\rufus-2.18-GitHub\x86_32\Debug\rufus.exe
