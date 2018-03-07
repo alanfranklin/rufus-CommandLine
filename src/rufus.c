@@ -127,6 +127,9 @@ static unsigned int timer;
 static int64_t last_iso_blocking_status;
 static void ToggleToGo(void);
 
+//ALF - Global logfile name
+char* logFileName = "rufus.log";
+
 /*
  * The following is used to allocate slots within the progress bar
  * 0 means unused (no operation or no progress allocated to it)
@@ -2628,9 +2631,10 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 					goto aborted_start;
 
 				GetWindowTextU(hDeviceList, tmp, ARRAYSIZE(tmp));
-				if (MessageBoxExU(hMainDialog, lmprintf(MSG_003, tmp),
-					APPLICATION_NAME, MB_OKCANCEL|MB_ICONWARNING|MB_IS_RTL, selected_langid) == IDCANCEL) 
-					goto aborted_start;
+				//ALF - Suppressed message box for automated opertion 
+				//if (MessageBoxExU(hMainDialog, lmprintf(MSG_003, tmp),
+				//	APPLICATION_NAME, MB_OKCANCEL|MB_ICONWARNING|MB_IS_RTL, selected_langid) == IDCANCEL) 
+				//	goto aborted_start;
 				if ((SelectedDrive.nPartitions > 1) && (MessageBoxExU(hMainDialog, lmprintf(MSG_093),
 					lmprintf(MSG_094), MB_OKCANCEL|MB_ICONWARNING|MB_IS_RTL, selected_langid) == IDCANCEL))
 					goto aborted_start;
@@ -2928,8 +2932,9 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
 			SendMessage(hProgress, PBM_SETRANGE, 0, (MAX_PROGRESS<<16) & 0xFFFF0000);
 			SetTaskbarProgressState(TASKBAR_NOPROGRESS);
 			PrintInfo(0, MSG_210);
+			//ALF - Added logic to show message (which has been commented out) and close form on completion
 			if (iso_provided_via_argument) {
-				MessageBox(NULL, "Your ResQstick has been created!!!", "DONE", MB_OK);
+				//MessageBox(NULL, "Your ResQstick has been created!!!", "DONE", MB_OK);
 				PostMessage(hDlg, WM_COMMAND, IDCANCEL, 0);
 			}
 			MessageBeep(MB_OK);
@@ -3038,7 +3043,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 #endif
 {
-	MessageBox(NULL, lpCmdLine, "DEBUG", MB_OK);
+	//ALF - Added and commented out the following line
+	//MessageBox(NULL, lpCmdLine, "DEBUG", MB_OK);
+	//ALF - Write progress to log file so it can be pulled and displayed in the CreatorApp
 	const char* rufus_loc = "rufus.loc";
 	int i, opt, option_index = 0, argc = 0, si = 0, lcid = GetUserDefaultUILanguage();
 	int wait_for_mutex = 0;

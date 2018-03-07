@@ -425,13 +425,28 @@ static BOOL bStatusTimerArmed = FALSE, bOutputTimerArmed[2] = { FALSE, FALSE };
 static char *output_msg[2];
 static uint64_t last_msg_time[2] = { 0, 0 };
 
+static int LogProgress(int progress)
+{
+	return 1;
+}
+
+static void LogMessage(char* msg)
+{
+	//MessageBox(NULL, "TEST", msg, MB_OK);
+	MessageBox(NULL, logFileName, msg, MB_OK);
+}
+
 static void PrintInfoMessage(char* msg) {
 	SetWindowTextU(hInfo, msg);
 	// Make sure our field gets redrawn
 	SendMessage(hInfo, WM_PAINT, 0, 0);
+	//ALF - Write progress to log file so it can be pulled and displayed in the CreatorApp
+	LogMessage(msg);
 }
 static void PrintStatusMessage(char* msg) {
 	SendMessageLU(hStatus, SB_SETTEXTW, SBT_OWNERDRAW | SB_SECTION_LEFT, msg);
+	//ALF - Write progress to log file so it can be pulled and displayed in the CreatorApp
+	//LogMessage(msg);
 }
 typedef void PRINT_FUNCTION(char*);
 PRINT_FUNCTION *PrintMessage[2] = { PrintInfoMessage, PrintStatusMessage };

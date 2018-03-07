@@ -603,3 +603,7 @@ static __inline HMODULE GetLibraryHandle(char* szLibraryName) {
 PF_TYPE(WINAPI, ULONGLONG, GetTickCount64, (void));
 extern GetTickCount64_t pfGetTickCount64;
 #define _GetTickCount64() ((pfGetTickCount64 != NULL)?(uint64_t)pfGetTickCount64():(uint64_t)GetTickCount())
+
+
+//ALF - For logging
+extern char* logFileName;
